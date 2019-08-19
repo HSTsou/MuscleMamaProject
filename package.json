@@ -8,16 +8,22 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "npm": "^6.10.1",
+    "prop-types": "^15.7.2",
     "react": "16.8.6",
-    "react-native": "0.60.4"
+    "react-native": "0.60.4",
+    "react-native-google-signin": "^2.0.0",
+    "react-native-webview": "^6.9.0",
+    "react-navigation": "^3.11.1",
+    "rxjs": "^6.5.2"
   },
   "devDependencies": {
     "@babel/core": "7.5.5",
     "@babel/runtime": "7.5.5",
     "@react-native-community/eslint-config": "0.0.3",
     "babel-jest": "24.8.0",
-    "eslint": "6.1.0",
+    "eslint": "^5.16.0",
     "jest": "24.8.0",
     "metro-react-native-babel-preset": "0.54.1",
     "react-test-renderer": "16.8.6"

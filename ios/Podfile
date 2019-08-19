@@ -27,6 +27,10 @@ target 'MMproject' do
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+  pod 'Firebase/Analytics'
+
+  pod 'GoogleSignIn', '~> 4.4.0'
+  pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
 
   target 'MMprojectTests' do
     inherit! :search_paths

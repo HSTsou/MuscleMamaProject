@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* MMprojectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MMprojectTests.m */; };
+		106DDC58230726B200B5492B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 106DDC57230726B200B5492B /* GoogleService-Info.plist */; };
+		106DDC5A23072C7800B5492B /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 106DDC5923072C7800B5492B /* libRNGoogleSignin.a */; };
+		106DDC5C23072C8700B5492B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106DDC5B23072C8700B5492B /* AddressBook.framework */; };
+		106DDC5E23072C9100B5492B /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106DDC5D23072C9100B5492B /* SafariServices.framework */; };
+		106DDC6023072C9A00B5492B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106DDC5F23072C9A00B5492B /* SystemConfiguration.framework */; };
+		106DDC6223072CA800B5492B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 106DDC6123072CA800B5492B /* libz.tbd */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -48,6 +54,12 @@
 		039C1D719805E0B3D1B0B671 /* libPods-MMprojectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMprojectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AAEEB5F81B7D1FD81D37E6B /* Pods-MMproject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMproject.release.xcconfig"; path = "Target Support Files/Pods-MMproject/Pods-MMproject.release.xcconfig"; sourceTree = "<group>"; };
 		0E716A9F90489F2CBC9D7EEF /* Pods-MMprojectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMprojectTests.release.xcconfig"; path = "Target Support Files/Pods-MMprojectTests/Pods-MMprojectTests.release.xcconfig"; sourceTree = "<group>"; };
+		106DDC57230726B200B5492B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		106DDC5923072C7800B5492B /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		106DDC5B23072C8700B5492B /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		106DDC5D23072C9100B5492B /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		106DDC5F23072C9A00B5492B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		106DDC6123072CA800B5492B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		13B07F961A680F5B00A75B9A /* MMproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MMproject/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MMproject/AppDelegate.m; sourceTree = "<group>"; };
@@ -82,6 +94,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				106DDC6223072CA800B5492B /* libz.tbd in Frameworks */,
+				106DDC6023072C9A00B5492B /* SystemConfiguration.framework in Frameworks */,
+				106DDC5E23072C9100B5492B /* SafariServices.framework in Frameworks */,
+				106DDC5C23072C8700B5492B /* AddressBook.framework in Frameworks */,
+				106DDC5A23072C7800B5492B /* libRNGoogleSignin.a in Frameworks */,
 				F99FEE60E0EF0A6D04DD0824 /* libPods-MMproject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +149,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				106DDC57230726B200B5492B /* GoogleService-Info.plist */,
 			);
 			name = MMproject;
 			sourceTree = "<group>";
@@ -139,6 +157,11 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				106DDC6123072CA800B5492B /* libz.tbd */,
+				106DDC5F23072C9A00B5492B /* SystemConfiguration.framework */,
+				106DDC5D23072C9100B5492B /* SafariServices.framework */,
+				106DDC5B23072C8700B5492B /* AddressBook.framework */,
+				106DDC5923072C7800B5492B /* libRNGoogleSignin.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				CD835640D3D15340C87E61C3 /* libPods-MMproject.a */,
@@ -194,7 +217,6 @@
 				0091DF3A674D2934792FFE92 /* Pods-MMprojectTests.debug.xcconfig */,
 				0E716A9F90489F2CBC9D7EEF /* Pods-MMprojectTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -230,6 +252,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				D4A486924287EF4039D1A07C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -292,6 +315,9 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = MT5L6F8JXS;
+					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
@@ -308,6 +334,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -338,6 +365,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				106DDC58230726B200B5492B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +399,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		2CD27CD6F02AA0675A6B1EAC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -473,6 +501,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4A486924287EF4039D1A07C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MMproject/Pods-MMproject-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MMproject/Pods-MMproject-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -628,6 +674,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = MT5L6F8JXS;
 				INFOPLIST_FILE = MMproject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -635,7 +682,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hs.mmproject;
 				PRODUCT_NAME = MMproject;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -647,6 +694,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MT5L6F8JXS;
 				INFOPLIST_FILE = MMproject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -654,7 +702,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hs.mmproject;
 				PRODUCT_NAME = MMproject;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
