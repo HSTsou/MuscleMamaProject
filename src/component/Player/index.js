@@ -3,9 +3,9 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import YoutubeWebviewPlayer from './YoutubeWebviewPlayer';
-import promiseCancelable from '../../utils/promiseCancelable';
-import { Subtitle } from '../../model/subtitleEntity';
+import YoutubeWebviewPlayer from './YTWebview/YoutubeWebviewPlayer';
+// import promiseCancelable from '../../utils/promiseCancelable';
+// import { Subtitle } from '../../model/subtitleEntity';
 
 const styles = StyleSheet.create({
   playerTouchView: {
@@ -37,15 +37,13 @@ const styles = StyleSheet.create({
 });
 
 // const defaultLoadingBackground = require('../../assets/images/video/default_loading_background.png');
-// const playIcon = require('../../assets/images/video/ic_common_videoplay.png');
+const playIcon = require('../../assets/image/ic_play.png');
 
 export const PLAYER_ERROR = {
   forbidden_auth: '403',
   buffering_fail: '901',
   webview_load_fail: '902',
 };
-
-const ANDROID_FROZEN_THRESHOLD = 1.2;
 
 class VideoPlayer extends Component {
   constructor(props) {
@@ -77,15 +75,16 @@ class VideoPlayer extends Component {
   }
 
   componentDidMount() {
+    console.log('video player index componentDidMount');
     // this.getVideoInformation();
   }
 
   componentDidUpdate() {
-    const { playerReady, subtitleReady } = this.state;
-    if (!this.allReady && subtitleReady && playerReady) {
-      this.allReady = true;
-      this.props.onAllReady();
-    }
+    // const { playerReady, subtitleReady } = this.state;
+    // if (!this.allReady && subtitleReady && playerReady) {
+    //   this.allReady = true;
+    //   this.props.onAllReady();
+    // }
   }
 
   componentWillUnmount() {
@@ -110,17 +109,6 @@ class VideoPlayer extends Component {
 
   onVideoEnd = () => {
     // console.log('onVideoEnd');
-    /**
-     * https://hopenglish.atlassian.net/browse/CS-302
-     */
-    if (this.repeatLock || this.repeatSentenceToggle) {
-      // console.log('onVideoEnd but wanna repeat sentence!');
-      if (this.repeatSentenceToggle && !this.repeatLock) {
-        // console.log('video is end, so need to seek the specific sentence index');
-        this.seekTo(this.repeatStartTime, this.props.seekAndPause);
-      }
-      return;
-    }
     this.resetPlayer();
     this.showNotPlayingView(true);
 
@@ -156,6 +144,7 @@ class VideoPlayer extends Component {
   }
 
   clickPlayerScreen = () => {
+    console.log('clickPlayerScreen');
     if (!this.props.clickPlayerScreen) {
       if (this.playing) {
         this.pause();
@@ -349,10 +338,10 @@ class VideoPlayer extends Component {
       videoId,
     } = this.state;
 
-    if (videoId) {
+    // if (videoId) {
       this.videoPlayer = this.getVideoPlayer(videoId);
-    }
-    this.notPlayingView = this.getPlayerCoverScreen(showNotPlayingView, thumbnailUrl);
+    // }
+    this.notPlayingView = this.getPlayerCoverScreen(showNotPlayingView, 'https://i.ytimg.com/vi/3KInXvWoq9U/default.jpg');
 
     return (
       <TouchableOpacity

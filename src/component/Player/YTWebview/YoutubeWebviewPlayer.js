@@ -70,7 +70,7 @@ class WebviewPlayer extends Component {
   onMessage = (event) => {
     const { data } = event.nativeEvent;
     const webViewMessage = data.split(BRIDGE_PATTERN);
-    console.log('onMessage webViewMessage : ', webViewMessage);
+    // console.log('onMessage webViewMessage : ', webViewMessage);
     const functionName = webViewMessage[0];
     const carriedData = webViewMessage[1];
 
@@ -111,7 +111,7 @@ class WebviewPlayer extends Component {
     }
 
     this.ready = true;
-    this.pauseVideo(); // TODO: need it,when mediaPlaybackRequiresUserAction is false.
+    // this.pauseVideo(); // TODO: need it,when mediaPlaybackRequiresUserAction is false.
     this.props.onReady(true);
   }
 
@@ -196,7 +196,7 @@ class WebviewPlayer extends Component {
   }
 
   handleStateChange = (data) => {
-    console.log('data', data);
+    console.log('handleStateChange data', data);
     if (data !== YOUTUBE_PLAYER_STATE.PLAYING) {
       this.playing = false;
       this.onPlayingChange(false);
@@ -205,7 +205,6 @@ class WebviewPlayer extends Component {
     switch (data) {
       case YOUTUBE_PLAYER_STATE.UNSTARTED:
         this.onReadyFired();
-        this.requestCurrentTime();
         this.requestDuration();
         break;
 
@@ -231,7 +230,7 @@ class WebviewPlayer extends Component {
         break;
 
       default:
-        // console.log('no match', data);
+        console.log('no match', data);
     }
   }
 
@@ -294,7 +293,7 @@ class WebviewPlayer extends Component {
         allowsInlineMediaPlayback
         mediaPlaybackRequiresUserAction={false}
         // source={{ html: YTPlayerHtml(this.props.videoId, screenWidth, screenHeight) }}
-        source={{ html: YTPlayerHtml('hY1tULEr4-4', screenWidth, screenHeight) }}
+        source={{ html: YTPlayerHtml('80BMiz8Cfts', screenWidth, screenHeight) }}
       />
     );
 

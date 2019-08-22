@@ -11,7 +11,6 @@ export default function YTPlayerHtml(
       </head>
       <body style="margin: 0px;background-color:#000;">
           <div id="player"></div>
-          
           <script>
             var tag = document.createElement('script');
     
@@ -54,7 +53,6 @@ export default function YTPlayerHtml(
             }
 
             function handleReactNativeMessage (event) {
-              // console.log('RECEIVED_MESSAGE', event.data); // avoid print log in device
               try {
                 var data = JSON.parse(event.data);
                 var method = data.method;
@@ -94,7 +92,7 @@ export default function YTPlayerHtml(
                 method,
                 payload,
               });
-              // console.log('POST_MESSAGE', msg); // avoid print log in device
+
               if (window.ReactNativeWebView) {
                 window.ReactNativeWebView.postMessage(msg);
               }
