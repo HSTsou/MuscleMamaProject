@@ -1,4 +1,5 @@
 import { GoogleSignin, GoogleSigninButton, statusCodes } from 'react-native-google-signin';
+import { createBottomTabNavigator } from 'react-navigation';
 import VideoPlayer from '@src/component/Player';
 import {
   YOUTUBE_DATA_API_KEY,
@@ -139,7 +140,7 @@ class Home extends Component {
                 style={{ width: 192, height: 48 }}
                 size={GoogleSigninButton.Size.Wide}
                 color={GoogleSigninButton.Color.Dark}
-                onPress={() => {this.signIn;}}
+                onPress={this.signIn}
                 // disabled={this.state.isSigninInProgress}
               />
             </View>

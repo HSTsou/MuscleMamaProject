@@ -5,14 +5,13 @@ import React, { Component } from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import YoutubeWebviewPlayer from './YTWebview/YoutubeWebviewPlayer';
 // import promiseCancelable from '../../utils/promiseCancelable';
-// import { Subtitle } from '../../model/subtitleEntity';
 
 const styles = StyleSheet.create({
   playerTouchView: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'transparent',
     justifyContent: 'center',
-    aspectRatio: 16 / 9,
+    // aspectRatio: 16 / 9,
   },
   wrapper: {
     ...StyleSheet.absoluteFillObject,
@@ -31,19 +30,12 @@ const styles = StyleSheet.create({
   },
   mask: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'black',
-    opacity: 0.5,
+    backgroundColor: 'white',
+    opacity: 0.8,
   },
 });
 
-// const defaultLoadingBackground = require('../../assets/images/video/default_loading_background.png');
 const playIcon = require('../../assets/image/ic_play.png');
-
-export const PLAYER_ERROR = {
-  forbidden_auth: '403',
-  buffering_fail: '901',
-  webview_load_fail: '902',
-};
 
 class VideoPlayer extends Component {
   constructor(props) {
@@ -95,7 +87,7 @@ class VideoPlayer extends Component {
   }
 
   onReady = (ready) => {
-    // console.log('video is ready :', ready);
+    console.log('video is ready :', ready);
     if (!ready) {
       return;
     }
@@ -127,10 +119,6 @@ class VideoPlayer extends Component {
 
   onPlayingChange = (playingState) => {
     // console.log('onPlayingChange is playing ?', playingState);
-    // if (this.isFreezeMode && playingState) {
-    //   console.log('onPlayingChange video player this.isFreezeMode play ?', this.isFreezeMode, playingState);
-    //   this.pause();
-    // }
     if (this.playing !== playingState) {
       this.repeatLock = false;
     }
@@ -144,7 +132,7 @@ class VideoPlayer extends Component {
   }
 
   clickPlayerScreen = () => {
-    console.log('clickPlayerScreen');
+    // console.log('clickPlayerScreen');
     if (!this.props.clickPlayerScreen) {
       if (this.playing) {
         this.pause();
@@ -158,7 +146,6 @@ class VideoPlayer extends Component {
   }
 
   play = () => {
-    this.isFreezeMode = false;
     if (this.playing || !this.player.current) {
       return;
     }
@@ -168,7 +155,6 @@ class VideoPlayer extends Component {
   }
 
   pause = () => {
-    this.isFreezeMode = true;
     if (!this.playing || !this.player.current) {
       return;
     }
@@ -178,14 +164,13 @@ class VideoPlayer extends Component {
   }
 
   stop = () => {
-    this.isFreezeMode = true;
     if (!this.player.current) {
       return;
     }
     this.player.current.stopVideo();
   }
 
-  seekTo = (seconds = 0, pause = false) => {
+  seekTo = (seconds = 0) => {
     // console.log('videoPlayer seekTo, pause :', seconds, pause);
     if (!this.player || !this.player.current) {
       return;
@@ -304,22 +289,8 @@ class VideoPlayer extends Component {
       return this.props.playerPauseView(videoPicUrl);
     }
 
-    const {
-      isStartPointTime,
-    } = this.state;
-
     return (
       <View style={styles.wrapper}>
-        {isStartPointTime &&
-        <Image
-          style={[
-                styles.thumbnail,
-              ]}
-          source={{ uri: videoPicUrl }}
-          resizeMode="cover"
-          fadeDuration={0}
-        />}
-
         <View style={styles.mask} />
 
         <Image
@@ -339,9 +310,9 @@ class VideoPlayer extends Component {
     } = this.state;
 
     // if (videoId) {
-      this.videoPlayer = this.getVideoPlayer(videoId);
+      this.videoPlayer = this.getVideoPlayer('','6D79CYTxvOM');
     // }
-    this.notPlayingView = this.getPlayerCoverScreen(showNotPlayingView, 'https://i.ytimg.com/vi/3KInXvWoq9U/default.jpg');
+    this.notPlayingView = this.getPlayerCoverScreen(showNotPlayingView, thumbnailUrl,);
 
     return (
       <TouchableOpacity
@@ -358,7 +329,6 @@ class VideoPlayer extends Component {
 }
 
 VideoPlayer.propTypes = {
-  postId: PropTypes.string.isRequired,
   source: PropTypes.string,
   videoId: PropTypes.string,
   onPlayerReady: PropTypes.func,

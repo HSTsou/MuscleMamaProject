@@ -6,9 +6,16 @@ class App extends Component {
     super(props);
 
   }
+
+  handleNavigationChange = (prevState, newState, action) => {
+    console.log('prevState, newState, action', prevState, newState, action);
+  }
+
   render() {
     return (
-      <AppNavigator />
+      <AppNavigator
+        onNavigationStateChange={this.handleNavigationChange}
+      />
     );
   }
 }

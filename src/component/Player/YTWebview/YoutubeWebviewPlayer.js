@@ -44,27 +44,18 @@ class WebviewPlayer extends Component {
     this.player = React.createRef();
 
     this.currentTimer = undefined;
-    this.bufferingTracker = undefined;
-    this.webViewErrorReloader = undefined;
-    this.onBufferingFail = false;
     this.videoDuration = -1;
     this.playing = false;
     this.ready = false;
     this.playErrorCount = 0;
-    this.webviewErrorCount = 0;
-
-    // this.iosUserAction = (getFirstNumberSystemVersion() === 9) ? false : true;
   }
 
   componentDidMount() {
-    console.log('yt did mount');
+    console.log('yt webviewPlayer did mount');
   }
 
   componentWillUnmount() {
     this.removeCurrentTimer();
-    // this.removeWebViewErrorReloader();
-    // this.removeBufferingTracker();
-    // this.resetPlayer();
   }
 
   onMessage = (event) => {
@@ -111,7 +102,6 @@ class WebviewPlayer extends Component {
     }
 
     this.ready = true;
-    // this.pauseVideo(); // TODO: need it,when mediaPlaybackRequiresUserAction is false.
     this.props.onReady(true);
   }
 
@@ -119,9 +109,8 @@ class WebviewPlayer extends Component {
     this.props.onVideoEnd();
   }
 
-  onPlayerBuffering = () => {
-    // this.removeBufferingTracker();
-    // this.createBufferingTracker();
+  onBuffering = () => {
+
   }
 
   onPlayerStateChange = () => {
@@ -135,7 +124,6 @@ class WebviewPlayer extends Component {
 
   onDurationChange = (duration) => {
     this.props.getDuration(duration);
-    // this.pauseVideo(); // TODO: need it,when mediaPlaybackRequiresUserAction is false.
   }
 
   onPlayingChange = (play) => {
@@ -155,7 +143,6 @@ class WebviewPlayer extends Component {
   // eslint-disable-next-line no-unused-vars
   onError = (error) => {
     console.warn('webview onError:', error);
-    // this.createWebViewErrorReloader();
   }
 
   requestCurrentTime = () => {
@@ -196,7 +183,7 @@ class WebviewPlayer extends Component {
   }
 
   handleStateChange = (data) => {
-    console.log('handleStateChange data', data);
+    // console.log('handleStateChange data', data);
     if (data !== YOUTUBE_PLAYER_STATE.PLAYING) {
       this.playing = false;
       this.onPlayingChange(false);
@@ -222,7 +209,7 @@ class WebviewPlayer extends Component {
         break;
 
       case YOUTUBE_PLAYER_STATE.BUFFERING:
-        this.onPlayerBuffering();
+        this.onBuffering();
         break;
 
       case YOUTUBE_PLAYER_STATE.VIDEO_CUED:
@@ -238,14 +225,12 @@ class WebviewPlayer extends Component {
     // console.log('before post to webview seekTo :', seconds);
     if (!this.player.current) { return; }
 
-    // this.player.current.postMessage(PLAYER_CALLBACK.seekTo + BRIDGE_PATTERN + seconds);
     this.postMessage(PLAYER_CALLBACK.seekTo, seconds);
   }
 
   playVideo = () => {
     console.log('playVideo');
     if (!this.player.current) { return; }
-    // this.player.current.postMessage(PLAYER_CALLBACK.playVideo);
     this.postMessage(PLAYER_CALLBACK.playVideo);
   }
 
@@ -253,14 +238,12 @@ class WebviewPlayer extends Component {
     console.log('pauseVideo');
     if (!this.player.current) { return; }
 
-    // this.player.current.postMessage(PLAYER_CALLBACK.pauseVideo);
     this.postMessage(PLAYER_CALLBACK.pauseVideo);
   }
 
   stopVideo = () => {
     if (!this.player.current) { return; }
 
-    // this.player.current.postMessage(PLAYER_CALLBACK.stopVideo);
     this.postMessage(PLAYER_CALLBACK.stopVideo);
   }
 
@@ -275,15 +258,7 @@ class WebviewPlayer extends Component {
   }
 
   render() {
-    // const injectedJavascript = `(function() {
-    //   window.postMessage = function(data) {
-    //     window.ReactNativeWebView.postMessage(data);
-    //   };
-    // })()`;
-
-    let webviewComponent;
-
-    webviewComponent = (
+    let webviewComponent = (
       <WebView
         ref={this.player}
         // injectedJavascript={injectedJavascript}
@@ -292,8 +267,10 @@ class WebviewPlayer extends Component {
         onError={this.onError}
         allowsInlineMediaPlayback
         mediaPlaybackRequiresUserAction={false}
-        // source={{ html: YTPlayerHtml(this.props.videoId, screenWidth, screenHeight) }}
-        source={{ html: YTPlayerHtml('80BMiz8Cfts', screenWidth, screenHeight) }}
+        source={{
+          html: YTPlayerHtml(this.props.videoId, screenWidth, screenHeight),
+          // headers: {'referer': 'https://youtube.com/'},
+        }}
       />
     );
 

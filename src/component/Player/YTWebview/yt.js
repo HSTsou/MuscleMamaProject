@@ -40,6 +40,7 @@ export default function YTPlayerHtml(
                       'enablejsapi': 1,
                       'controls': 0,
                       'modestbranding': 1,  
+                      'origins':'http://example.com',
                   },
                   height: '${height}',
                   width: '${width}',
@@ -103,6 +104,8 @@ export default function YTPlayerHtml(
             }
   
             function onPlayerReady(event) {
+              window.ReactNativeWebView.postMessage("onPlayerReady_");
+
               // walk around: avoiding to the Buffering state forever resulted by executing seekTo() at the first time.
               // seekTo(0); 
               
