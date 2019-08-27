@@ -8,7 +8,7 @@ class App extends Component {
   }
 
   handleNavigationChange = (prevState, newState, action) => {
-    console.log('prevState, newState, action', prevState, newState, action);
+    console.log('AppNavigator prevState, newState, action', prevState, newState, action);
   }
 
   render() {

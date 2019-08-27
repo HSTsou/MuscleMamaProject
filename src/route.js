@@ -18,10 +18,10 @@ const HomeTabNavigator = createBottomTabNavigator(
         let IconComponent = Ionicons;
         let iconName;
         if (routeName === 'Home') {
-          iconName = isIOS ? 'ios-home' : 'home';
+          iconName = isIOS ? 'ios-home' : 'md-home';
           IconComponent = HomeIcon;
         } else if (routeName === 'User') {
-          iconName = isIOS ? 'ios-person' : 'person';
+          iconName = isIOS ? 'ios-person' : 'md-person';
         }
 
         return <IconComponent name={iconName} size={25} color={tintColor} />;

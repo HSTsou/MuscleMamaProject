@@ -61,7 +61,7 @@ class WebviewPlayer extends Component {
   onMessage = (event) => {
     const { data } = event.nativeEvent;
     const webViewMessage = data.split(BRIDGE_PATTERN);
-    // console.log('onMessage webViewMessage : ', webViewMessage);
+    console.log('onMessage webViewMessage : ', webViewMessage);
     const functionName = webViewMessage[0];
     const carriedData = webViewMessage[1];
 
@@ -268,8 +268,9 @@ class WebviewPlayer extends Component {
         allowsInlineMediaPlayback
         mediaPlaybackRequiresUserAction={false}
         source={{
-          html: YTPlayerHtml(this.props.videoId, screenWidth, screenHeight),
+          // html: YTPlayerHtml(this.props.videoId, screenWidth, screenHeight),
           // headers: {'referer': 'https://youtube.com/'},
+          uri: `https://movie2019.appspot.com/?video_id=${this.props.videoId}`,
         }}
       />
     );

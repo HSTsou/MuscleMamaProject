@@ -310,7 +310,7 @@ class VideoPlayer extends Component {
     } = this.state;
 
     // if (videoId) {
-      this.videoPlayer = this.getVideoPlayer('','6D79CYTxvOM');
+      this.videoPlayer = this.getVideoPlayer('','_dW66owaCJs');
     // }
     this.notPlayingView = this.getPlayerCoverScreen(showNotPlayingView, thumbnailUrl,);
 
